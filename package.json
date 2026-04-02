@@ -9,7 +9,7 @@
 		"preview": "astro preview",
 		"deploy": "npm run copy-config && wrangler deploy",
 		"typecheck": "astro check",
-		"copy-config": "cp wrangler.jsonc dist/server/wrangler.json"
+		"copy-config": "node -e \"const fs = require('fs'); const root = JSON.parse(fs.readFileSync('wrangler.jsonc', 'utf8')); const dist = JSON.parse(fs.readFileSync('dist/server/wrangler.json', 'utf8')); dist.worker_loaders = root.worker_loaders; fs.writeFileSync('dist/server/wrangler.json', JSON.stringify(dist, null, 2));\"",
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^13.1.6",
