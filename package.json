@@ -7,7 +7,7 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"deploy": "wrangler deploy",
+		"deploy": "npm run copy-config && wrangler deploy",
 		"typecheck": "astro check",
 		"copy-config": "cp wrangler.jsonc dist/server/wrangler.json"
 	},
